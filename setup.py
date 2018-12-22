@@ -13,11 +13,7 @@ setup(
     author='Lukas Deutz',
     author_email='lukas.deutz@mailfence.com',
     packages=['giig'],
-    entry_points={
-        'console_scripts': [
-            'my_project = my_project.__main__:main'
-        ]
-    },
+    scripts=['bin/giig'],
     install_requires=['requests'],
     keywords='gitignore git cli',
     license='MIT',

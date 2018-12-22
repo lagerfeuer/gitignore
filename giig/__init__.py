@@ -1,1 +1,1 @@
-from giig import giig
+from giig.giig import get_list, get_gitignore, search
