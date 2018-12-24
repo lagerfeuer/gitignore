@@ -2,6 +2,7 @@
 
 import argparse
 import giig
+from shutil import get_terminal_size
 
 
 def main():
@@ -12,19 +13,30 @@ def main():
     parser.add_argument("--list", "-l", action="store_true",
                         help="list all language, IDE or OS options")
     parser.add_argument("--search", "-s", type=str,
-                        help="search list of options and print found matches")
+                        help="search list of options and print matches")
     parser.add_argument("--file", "-f", type=str,
                         default=".gitignore", help="specify which file to write to")
     args = parser.parse_args()
 
     if args.list:
-        print("\n".join(giig.get_list()))
+        gitignore_list = giig.get_list()
+        term_width = get_terminal_size()[0]
+        col_width = max([len(x) for x in gitignore_list]) + 2
+        elems_per_row = int(term_width / col_width)
+        for (i, elem) in enumerate(gitignore_list):
+            if i > 0 and (i % elems_per_row) == 0:
+                print()
+            print(elem.ljust(col_width), end='')
+        print()
+
     elif args.search:
         print("\n".join(giig.search(args.search.lower())))
+
     elif args.languages:
         with open(args.file, "w+") as gitignore:
             gitignore.write(giig.get_gitignore(
                 [lang.lower() for lang in args.languages]))
+
     else:
         parser.print_help()
 
