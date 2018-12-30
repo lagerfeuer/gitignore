@@ -3,7 +3,7 @@ Python 3 gitignore fetcher based on [gitignore.io](http://gitignore.io)
 
 ## Install
 
-```sh
+```
 # pip3 install giig
 ```
 
