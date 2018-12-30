@@ -1,6 +1,12 @@
 # gitignore
 Python 3 gitignore fetcher based on [gitignore.io](http://gitignore.io)
 
+## Install
+
+```sh
+# pip3 install giig
+```
+
 ## Usage
 
 ```python
@@ -19,6 +25,23 @@ optional arguments:
   --file FILE, -f FILE  specify which file to write to
 ```
 
+### Use as library
+
+```python
+import giig
+
+# get list of languages, IDEs, etc.
+giig.get_list()
+
+# get list of languages, IDEs, etc.
+giig.search(term)
+
+# get gitignore for one/several languages, IDEs, etc.
+# where options is a list of terms
+giig.get_ignore(options)
+```
+
 ## Todo
 
-[ ] add cache (don't need to query gitignore.io everytime)
+* [ ] make giig print to stdout without `-f`
+* [ ] add cache (don't need to query gitignore.io everytime)
