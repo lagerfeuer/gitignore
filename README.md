@@ -25,6 +25,28 @@ optional arguments:
   --file FILE, -f FILE  specify which file to write to
 ```
 
+### Print list
+Print list of all possible options for gitignore.io
+```
+giig -l
+```
+
+### Search
+Search for specific term (e.g. python)
+```
+giig -s python
+```
+
+### Write .gitignore file
+```
+giig python
+```
+
+#### Use custom file
+```
+giig -f custom-file.txt python
+```
+
 ### Use as library
 
 ```python
