@@ -14,8 +14,8 @@ def main():
                         help="list all language, IDE or OS options")
     parser.add_argument("--search", "-s", type=str,
                         help="search list of options and print matches")
-    parser.add_argument("--file", "-f", type=str,
-                        default=".gitignore", help="specify which file to write to")
+    parser.add_argument("--file", "-f", type=str, nargs='?', const='.gitignore', default=None,
+                        help="specify which file to write to")
     args = parser.parse_args()
 
     if args.list:
@@ -33,9 +33,13 @@ def main():
         print("\n".join(giig.search(args.search.lower())))
 
     elif args.languages:
-        with open(args.file, "w+") as gitignore:
-            gitignore.write(giig.get_gitignore(
-                [lang.lower() for lang in args.languages]))
+        content = giig.get_gitignore(
+                    [lang.lower() for lang in args.languages])
+        if args.file is not None:
+            with open(args.file, "w+") as gitignore:
+                gitignore.write(content)
+        else:
+            print(content)
 
     else:
         parser.print_help()

@@ -9,8 +9,8 @@ Python 3 gitignore fetcher based on [gitignore.io](http://gitignore.io)
 
 ## Usage
 
-```python
-usage: giig [-h] [--list] [--search SEARCH] [--file FILE] [lang [lang ...]]
+```
+usage: giig [-h] [--list] [--search SEARCH] [--file [FILE]] [lang [lang ...]]
 
 Download .gitignore files from gitignore.io
 
@@ -22,7 +22,8 @@ optional arguments:
   --list, -l            list all language, IDE or OS options
   --search SEARCH, -s SEARCH
                         search list of options and print matches
-  --file FILE, -f FILE  specify which file to write to
+  --file [FILE], -f [FILE]
+                        specify which file to write to
 ```
 
 ### Print list
@@ -37,9 +38,14 @@ Search for specific term (e.g. python)
 giig -s python
 ```
 
-### Write .gitignore file
+### Print to stdout
 ```
 giig python
+```
+
+### Write .gitignore file
+```
+giig -f python
 ```
 
 #### Use custom file
@@ -65,5 +71,5 @@ giig.get_ignore(options)
 
 ## Todo
 
-* [ ] make giig print to stdout without `-f`
+* [x] make giig print to stdout without `-f`
 * [ ] add cache (don't need to query gitignore.io everytime)
