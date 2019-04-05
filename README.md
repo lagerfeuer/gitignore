@@ -45,7 +45,7 @@ giig python
 
 ### Write .gitignore file
 ```
-giig -f python
+giig -f -- python
 ```
 
 #### Use custom file

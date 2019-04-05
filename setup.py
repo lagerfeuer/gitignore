@@ -5,7 +5,7 @@ with open('README.md', encoding="utf-8") as f:
 
 setup(
     name='giig',
-    version='0.3',
+    version='0.3.1',
     description='CLI for gitignore.io',
     long_description=readme,
     long_description_content_type='text/markdown',
