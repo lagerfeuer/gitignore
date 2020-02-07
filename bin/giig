@@ -34,7 +34,7 @@ def main():
 
     elif args.languages:
         content = giig.get_gitignore(
-                    [lang.lower() for lang in args.languages])
+            [lang.lower() for lang in args.languages])
         if args.file is not None:
             with open(args.file, "w+") as gitignore:
                 gitignore.write(content)
